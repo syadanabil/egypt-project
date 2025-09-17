@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Museum | Discover Ancient Treasures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <style>
+  /* استيراد خط كلاسيكي */
+ /* استيراد خطوط */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #d4af37; /* دهبي */
+  --secondary: #4169e1; /* أزرق ملكي */
+  --dark: #121212; /* خلفية أساسية */
+  --darker: #1e1e1e; /* عناصر داخلية */
+  --light: #e0e0e0; /* نص فاتح */
+  --gray: #aaaaaa;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--dark);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: var(--dark);
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--primary);
+  position: relative;
+  text-shadow: 2px 2px 15px rgba(212,175,55,0.6);
+  font-family: 'Cinzel', serif;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--secondary);
+  margin: 15px auto;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('mmm.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 20px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 
+
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+}
+
+.logo i {
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-shadow: 2px 2px 15px rgba(212,175,55,0.8);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin-bottom: 30px;
+  color: var(--gray);
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Treasures Section */
+.treasures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.treasure-card {
+  background: var(--darker);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  transition: transform 0.3s;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.treasure-card:hover {
+  transform: translateY(-10px);
+}
+
+.treasure-img {
+  height: 400px;         /* بدل 250px خليتها أصغر */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.treasure-img img {
+  width: 100%;
+  transition: transform 0.5s;
+   width: 100%;          /* تملأ عرض الكارد */
+    height: auto;         /* تخلي الارتفاع أوتوماتيك */
+    object-fit: contain;
+}
+
+.treasure-card:hover .treasure-img img {
+  transform: scale(1.1);
+}
+
+.treasure-info {
+  padding: 20px;
+}
+
+.treasure-info h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-family: 'Cinzel', serif;
+}
+
+/* Mummies Section */
+.mummies-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.mummy-card {
+  background: var(--darker);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+
+.mummy-card h3 {
+  color: var(--secondary);
+  margin-bottom: 15px;
+  font-family: 'Cinzel', serif;
+}
+.mummy-card img {
+  width: 100%;
+  height: 400px;   /* ارتفاع ثابت */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Booking Section */
+.booking {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1633287387306-f08b4b7051db?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(30,30,30,0.8);
+  padding: 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background: #2c2c2c;
+  color: var(--light);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to top, #000, #1e1e1e);
+  color: var(--gray);
+  padding: 40px 0;
+  text-align: center;
+  
+}
+
+.footer-content h3 {
+  color: var(--primary);
+  font-family: 'Cinzel', serif;
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  color: var(--light);
+  font-size: 24px;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .treasures-grid,
+  .mummies-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo"><i class="fas fa-pyramid"></i> Egyptian Museum</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#treasures">Treasures</a></li>
+                <li><a href="#mummies">Mummies</a></li>
+                <li><a href="#booking">Book Visit</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero">
+            <h1>Discover Ancient Egypt's Wonders</h1>
+            <p>Explore the largest collection of Egyptian antiquities in the world at the legendary Egyptian Museum in Cairo</p>
+            <a href="#booking" class="btn">Plan Your Visit</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About the Museum</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The Egyptian Museum in Cairo, also known as the Museum of Egyptian Antiquities, is home to an extensive collection of ancient Egyptian artifacts dating back thousands of years. Founded in 1858 by French archaeologist Auguste Mariette, the museum houses over 120,000 items, with a representative amount on display.</p>
+                    <p>Located in Tahrir Square in downtown Cairo, the museum's distinctive pink building was constructed in 1900 in the neoclassical style. It offers visitors an unparalleled journey through Egypt's fascinating history, from the prehistoric period through the Pharaonic era to the Greco-Roman period.</p>
+                    <p>The museum's most famous exhibit is the treasures of Tutankhamun, including his iconic gold mask. Other highlights include the Royal Mummy Room, the Narmer Palette, and countless statues, jewelry, and artifacts that tell the story of one of the world's greatest ancient civilizations.</p>
+                </div>
+                <div class="about-image">
+                    <img src="egyptian.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treasures Section -->
+    <section id="treasures">
+        <div class="container">
+            <h2 class="section-title">Famous Treasures</h2>
+            <div class="treasures-grid">
+                <div class="treasure-card">
+                    <div class="treasure-img">
+                        <img src="msg1494293136-3023.jpg" alt="Tutankhamun's Mask">
+                    </div>
+                    <div class="treasure-info">
+                        <h3>Tutankhamun's Gold Mask</h3>
+                        <p>The funerary mask of Tutankhamun is perhaps the most famous artifact from ancient Egypt. Discovered by Howard Carter in 1925, the mask is made of solid gold and inlaid with semi-precious stones.</p>
+                    </div>
+                </div>
+                
+                <div class="treasure-card">
+                    <div class="treasure-img">
+                        <img src="msg1494293136-3026.jpg" alt="Narmer Palette">
+                    </div>
+                    <div class="treasure-info">
+                        <h3>Narmer Palette</h3>
+                        <p>Dating from about the 31st century BC, the Narmer Palette contains some of the earliest hieroglyphic inscriptions ever found. It is thought to depict the unification of Upper and Lower Egypt.</p>
+                    </div>
+                </div>
+                
+                <div class="treasure-card">
+                    <div class="treasure-img">
+                        <img src="msg1494293136-3027.jpg" alt="Statue of Khafre">
+                    </div>
+                    <div class="treasure-info">
+                        <h3>Statue of Khafre</h3>
+                        <p>This magnificent diorite statue depicts Pharaoh Khafre, builder of the second pyramid at Giza. The statue was discovered in his valley temple in 1860 and is a masterpiece of Old Kingdom art.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mummies Section -->
+   <section id="mummies">
+  <div class="container">
+    <h2 class="section-title">Royal Mummies</h2>
+    <div class="mummies-content">
+
+      <!-- Ramses II -->
+      <div class="mummy-card">
+        <img src="image.webp" alt="Ramses II" >
+        <h3>Ramses II</h3>
+        <p>Often called Ramses the Great, he was the third pharaoh of the Nineteenth Dynasty of Egypt. He is often regarded as the most celebrated and powerful pharaoh of the New Kingdom.</p>
+      </div>
+
+      <!-- Hatshepsut -->
+      <div class="mummy-card">
+        <img src="Queen-Hatshepsut-Temple-Egypt-Tours-Portal.jpg" alt="Hatshepsut" >
+        <h3>Hatshepsut</h3>
+        <p>Hatshepsut was the fifth pharaoh of the Eighteenth Dynasty of Egypt. She was the second historically confirmed female pharaoh, and known for her successful reign and building projects.</p>
+      </div>
+
+      <!-- Thutmose III -->
+      <div class="mummy-card">
+        <img src="Statue-of-King-Thutmose-III.jpg" alt="Thutmose III" >
+        <h3>Thutmose III</h3>
+        <p>Thutmose III was the sixth pharaoh of the Eighteenth Dynasty. He created the largest empire Egypt had ever seen, with no fewer than 17 campaigns.</p>
+      </div>
+
+      <!-- Seti I -->
+      <div class="mummy-card">
+        <img src="19029610a7462aed143f82368869c743.jpg" alt="Seti I" >
+        <h3>Seti I</h3>
+        <p>Seti I was a pharaoh of the New Kingdom Nineteenth Dynasty. He was the father of Ramesses II and known for his military campaigns and building projects.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Visit</h2>
+            <div class="booking-form">
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Visit Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tickets">Number of Tickets</label>
+                        <select id="tickets">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Special Requests</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Egyptian Museum</h3>
+                <p>Tahrir Square, Cairo, Egypt</p>
+                <p>Open Daily: 9:00 AM - 5:00 PM</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p>&copy; 2023 Egyptian Museum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('date').value;
+            
+            if (name && email && date) {
+                alert('Thank you for your booking! We will send a confirmation to your email shortly.');
+                document.getElementById('booking-form').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
